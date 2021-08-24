@@ -24,25 +24,25 @@ import com.o19s.es.ltr.ranker.normalizer.StandardFeatureNormalizer;
 import com.o19s.es.ltr.ranker.parser.LtrRankerParserFactory;
 import org.apache.lucene.util.BytesRef;
 import org.apache.lucene.util.LuceneTestCase;
-import org.elasticsearch.Version;
-import org.elasticsearch.common.ParsingException;
-import org.elasticsearch.common.Randomness;
-import org.elasticsearch.common.Strings;
-import org.elasticsearch.common.io.stream.ByteBufferStreamInput;
-import org.elasticsearch.common.io.stream.BytesStreamOutput;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.xcontent.LoggingDeprecationHandler;
-import org.elasticsearch.common.xcontent.ToXContent;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
-import org.elasticsearch.common.xcontent.XContentParser;
-import org.elasticsearch.common.xcontent.XContentType;
+import org.opensearch.Version;
+import org.opensearch.common.ParsingException;
+import org.opensearch.common.Randomness;
+import org.opensearch.common.Strings;
+import org.opensearch.common.io.stream.ByteBufferStreamInput;
+import org.opensearch.common.io.stream.BytesStreamOutput;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.xcontent.LoggingDeprecationHandler;
+import org.opensearch.common.xcontent.ToXContent;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.common.xcontent.XContentFactory;
+import org.opensearch.common.xcontent.XContentParser;
+import org.opensearch.common.xcontent.XContentType;
 
 import java.io.IOException;
 import java.util.Base64;
 
-import static org.elasticsearch.common.xcontent.NamedXContentRegistry.EMPTY;
-import static org.elasticsearch.common.xcontent.json.JsonXContent.jsonXContent;
+import static org.opensearch.common.xcontent.NamedXContentRegistry.EMPTY;
+import static org.opensearch.common.xcontent.json.JsonXContent.jsonXContent;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -309,25 +309,25 @@ public class StoredLtrModelParserTests extends LuceneTestCase {
 
     }
 
+    // aparo: disabled because it comes first of OpenSearch > 7.10
+    // public void testSerializationUpgradeBinaryStream() throws IOException {
+    //     // Below is base64 encoded a model with no feature norm data
+    //     // to ensure proper parsing of a binary stream missing ftr norms
+    //     //
+    //     //        String modelDefnJson = "{\n" +
+    //     //                "   \"type\": \"model/dummy\",\n" +
+    //     //                "   \"definition\": \"completely ignored\"}";
+    //     String base64Encoded = "C21vZGVsL2R1bW15EmNvbXBsZXRlbHkgaWdub3JlZAE=";
+    //     byte[] bytes = Base64.getDecoder().decode(base64Encoded);
+    //     StreamInput input = ByteBufferStreamInput.wrap(bytes, 0, bytes.length);
+    //     input.setVersion(Version.V_7_6_0);
 
-    public void testSerializationUpgradeBinaryStream() throws IOException {
-        // Below is base64 encoded a model with no feature norm data
-        // to ensure proper parsing of a binary stream missing ftr norms
-        //
-        //        String modelDefnJson = "{\n" +
-        //                "   \"type\": \"model/dummy\",\n" +
-        //                "   \"definition\": \"completely ignored\"}";
-        String base64Encoded = "C21vZGVsL2R1bW15EmNvbXBsZXRlbHkgaWdub3JlZAE=";
-        byte[] bytes = Base64.getDecoder().decode(base64Encoded);
-        StreamInput input = ByteBufferStreamInput.wrap(bytes, 0, bytes.length);
-        input.setVersion(Version.V_7_6_0);
+    //     StoredLtrModel.LtrModelDefinition modelUnserialized = new StoredLtrModel.LtrModelDefinition(input);
+    //     assertEquals(modelUnserialized.getDefinition(), "completely ignored");
+    //     assertEquals(modelUnserialized.getType(), "model/dummy");
+    //     assertEquals(modelUnserialized.getFtrNorms().numNormalizers(), 0);
 
-        StoredLtrModel.LtrModelDefinition modelUnserialized = new StoredLtrModel.LtrModelDefinition(input);
-        assertEquals(modelUnserialized.getDefinition(), "completely ignored");
-        assertEquals(modelUnserialized.getType(), "model/dummy");
-        assertEquals(modelUnserialized.getFtrNorms().numNormalizers(), 0);
-
-    }
+    // }
 
 
     public void testToXContent() throws IOException {

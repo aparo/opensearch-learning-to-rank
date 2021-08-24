@@ -2,14 +2,14 @@ package com.o19s.es.ltr.feature.store;
 
 import com.o19s.es.ltr.feature.FeatureSet;
 import com.o19s.es.ltr.ranker.normalizer.Normalizer;
-import org.elasticsearch.ElasticsearchException;
-import org.elasticsearch.common.ParseField;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
-import org.elasticsearch.common.xcontent.ObjectParser;
-import org.elasticsearch.common.xcontent.ToXContent;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentParser;
+import org.opensearch.OpenSearchException;
+import org.opensearch.common.ParseField;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
+import org.opensearch.common.xcontent.ObjectParser;
+import org.opensearch.common.xcontent.ToXContent;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.common.xcontent.XContentParser;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -110,7 +110,7 @@ public class StoredFeatureNormalizers {
             Normalizer ftrNorm = ftrNormDefEntry.getValue().createFeatureNorm();
 
             if (!featureSet.hasFeature(featureName)) {
-                throw new ElasticsearchException("Feature " + featureName +
+                throw new OpenSearchException("Feature " + featureName +
                                                  " not found in feature set " + featureSet.name());
             }
 
@@ -147,7 +147,7 @@ public class StoredFeatureNormalizers {
             return new MinMaxFeatureNormDefinition(input);
         }
         // note the Type constructor throws on this condition as well
-        throw new ElasticsearchException("unknown normalizer type during deserialization");
+        throw new OpenSearchException("unknown normalizer type during deserialization");
     }
 
     public void writeTo(StreamOutput output) throws IOException {

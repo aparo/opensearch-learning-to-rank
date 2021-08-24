@@ -7,8 +7,8 @@ import com.o19s.es.ltr.feature.store.StoredFeature;
 import com.o19s.es.ltr.feature.store.StoredFeatureSet;
 import com.o19s.es.ltr.feature.store.index.CachedFeatureStore;
 import com.o19s.es.ltr.feature.store.index.Caches;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.test.ESTestCase;
+import org.opensearch.common.settings.Settings;
+import org.opensearch.test.OpenSearchTestCase;
 import org.hamcrest.collection.IsMapContaining;
 import org.junit.Before;
 
@@ -17,7 +17,7 @@ import java.util.Map;
 
 import static com.o19s.es.ltr.stats.suppliers.CacheStatsOnNodeSupplier.Stat;
 
-public class CacheStatsOnNodeSupplierTests extends ESTestCase {
+public class CacheStatsOnNodeSupplierTests extends OpenSearchTestCase {
     private MemStore memStore;
     private Caches caches;
 

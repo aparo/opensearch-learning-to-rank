@@ -23,9 +23,9 @@ import com.o19s.es.ltr.feature.store.index.CachedFeatureStore;
 import com.o19s.es.ltr.feature.store.index.Caches;
 import com.o19s.es.ltr.ranker.LtrRanker;
 import org.apache.lucene.util.Accountable;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.unit.ByteSizeUnit;
-import org.elasticsearch.common.unit.ByteSizeValue;
+import org.opensearch.common.settings.Settings;
+import org.opensearch.common.unit.ByteSizeUnit;
+import org.opensearch.common.unit.ByteSizeValue;
 
 import java.io.IOException;
 

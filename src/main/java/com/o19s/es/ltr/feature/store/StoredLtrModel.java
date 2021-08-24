@@ -22,25 +22,25 @@ import com.o19s.es.ltr.ranker.normalizer.FeatureNormalizingRanker;
 import com.o19s.es.ltr.ranker.normalizer.Normalizer;
 import com.o19s.es.ltr.ranker.parser.LtrRankerParser;
 import com.o19s.es.ltr.ranker.parser.LtrRankerParserFactory;
-import org.elasticsearch.Version;
-import org.elasticsearch.common.ParseField;
-import org.elasticsearch.common.ParsingException;
-import org.elasticsearch.common.Strings;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
-import org.elasticsearch.common.io.stream.Writeable;
-import org.elasticsearch.common.xcontent.LoggingDeprecationHandler;
-import org.elasticsearch.common.xcontent.ObjectParser;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentParser;
-import org.elasticsearch.common.xcontent.json.JsonXContent;
+import org.opensearch.Version;
+import org.opensearch.common.ParseField;
+import org.opensearch.common.ParsingException;
+import org.opensearch.common.Strings;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
+import org.opensearch.common.io.stream.Writeable;
+import org.opensearch.common.xcontent.LoggingDeprecationHandler;
+import org.opensearch.common.xcontent.ObjectParser;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.common.xcontent.XContentParser;
+import org.opensearch.common.xcontent.json.JsonXContent;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static org.elasticsearch.common.xcontent.NamedXContentRegistry.EMPTY;
+import static org.opensearch.common.xcontent.NamedXContentRegistry.EMPTY;
 
 public class StoredLtrModel implements StorableElement {
     public static final String TYPE = "model";
@@ -87,11 +87,7 @@ public class StoredLtrModel implements StorableElement {
         rankingModelType = input.readString();
         rankingModel = input.readString();
         modelAsString = input.readBoolean();
-        if (input.getVersion().onOrAfter(Version.V_7_7_0)) {
-            this.parsedFtrNorms = new StoredFeatureNormalizers(input);
-        } else {
-            this.parsedFtrNorms = new StoredFeatureNormalizers();
-        }
+        this.parsedFtrNorms = new StoredFeatureNormalizers(input);
     }
 
     @Override
@@ -101,9 +97,7 @@ public class StoredLtrModel implements StorableElement {
         out.writeString(rankingModelType);
         out.writeString(rankingModel);
         out.writeBoolean(modelAsString);
-        if (out.getVersion().onOrAfter(Version.V_7_7_0)) {
-            parsedFtrNorms.writeTo(out);
-        }
+        parsedFtrNorms.writeTo(out);
     }
 
     public static StoredLtrModel parse(XContentParser parser) {
@@ -281,11 +275,7 @@ public class StoredLtrModel implements StorableElement {
             type = in.readString();
             definition = in.readString();
             modelAsString = in.readBoolean();
-            if (in.getVersion().onOrAfter(Version.V_7_7_0)) {
-                this.featureNormalizers = new StoredFeatureNormalizers(in);
-            } else {
-                this.featureNormalizers = new StoredFeatureNormalizers();
-            }
+            this.featureNormalizers = new StoredFeatureNormalizers(in);
         }
 
         @Override
@@ -293,9 +283,7 @@ public class StoredLtrModel implements StorableElement {
             out.writeString(type);
             out.writeString(definition);
             out.writeBoolean(modelAsString);
-            if (out.getVersion().onOrAfter(Version.V_7_7_0)) {
-                this.featureNormalizers.writeTo(out);
-            }
+            this.featureNormalizers.writeTo(out);
         }
 
 

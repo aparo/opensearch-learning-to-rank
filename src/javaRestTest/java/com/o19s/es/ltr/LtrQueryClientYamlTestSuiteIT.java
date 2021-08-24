@@ -17,13 +17,13 @@ package com.o19s.es.ltr;
 
 import com.carrotsearch.randomizedtesting.annotations.Name;
 import com.carrotsearch.randomizedtesting.annotations.ParametersFactory;
-import org.elasticsearch.test.rest.yaml.ClientYamlTestCandidate;
-import org.elasticsearch.test.rest.yaml.ESClientYamlSuiteTestCase;
+import org.opensearch.test.rest.yaml.ClientYamlTestCandidate;
+import org.opensearch.test.rest.yaml.OpenSearchClientYamlSuiteTestCase;
 
 /**
  * Created by doug on 12/30/16.
  */
-public class LtrQueryClientYamlTestSuiteIT extends ESClientYamlSuiteTestCase {
+public class LtrQueryClientYamlTestSuiteIT extends OpenSearchClientYamlSuiteTestCase {
 
     public LtrQueryClientYamlTestSuiteIT(@Name("yaml") ClientYamlTestCandidate testCandidate) {
         super(testCandidate);
@@ -31,6 +31,6 @@ public class LtrQueryClientYamlTestSuiteIT extends ESClientYamlSuiteTestCase {
 
     @ParametersFactory
     public static Iterable<Object[]> parameters() throws Exception {
-        return ESClientYamlSuiteTestCase.createParameters();
+        return OpenSearchClientYamlSuiteTestCase.createParameters();
     }
 }

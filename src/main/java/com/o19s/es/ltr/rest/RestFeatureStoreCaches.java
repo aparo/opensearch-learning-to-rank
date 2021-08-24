@@ -19,19 +19,19 @@ package com.o19s.es.ltr.rest;
 import com.o19s.es.ltr.action.CachesStatsAction;
 import com.o19s.es.ltr.action.ClearCachesAction;
 import com.o19s.es.ltr.action.ClearCachesAction.ClearCachesNodesResponse;
-import org.elasticsearch.client.node.NodeClient;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.rest.BytesRestResponse;
-import org.elasticsearch.rest.RestRequest;
-import org.elasticsearch.rest.RestResponse;
-import org.elasticsearch.rest.action.RestActions.NodesResponseRestListener;
-import org.elasticsearch.rest.action.RestBuilderListener;
+import org.opensearch.client.node.NodeClient;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.rest.BytesRestResponse;
+import org.opensearch.rest.RestRequest;
+import org.opensearch.rest.RestResponse;
+import org.opensearch.rest.action.RestActions.NodesResponseRestListener;
+import org.opensearch.rest.action.RestBuilderListener;
 
 import java.util.List;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.unmodifiableList;
-import static org.elasticsearch.rest.RestStatus.OK;
+import static org.opensearch.rest.RestStatus.OK;
 
 /**
  * Clear cache (default store):

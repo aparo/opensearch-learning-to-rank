@@ -17,16 +17,16 @@
 package com.o19s.es.ltr.rest;
 
 import org.apache.lucene.util.LuceneTestCase;
-import org.elasticsearch.common.xcontent.LoggingDeprecationHandler;
-import org.elasticsearch.common.xcontent.NamedXContentRegistry;
-import org.elasticsearch.common.xcontent.XContentParser;
+import org.opensearch.common.xcontent.LoggingDeprecationHandler;
+import org.opensearch.common.xcontent.NamedXContentRegistry;
+import org.opensearch.common.xcontent.XContentParser;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static com.o19s.es.ltr.feature.store.StoredFeatureParserTests.generateTestFeature;
-import static org.elasticsearch.common.xcontent.json.JsonXContent.jsonXContent;
+import static org.opensearch.common.xcontent.json.JsonXContent.jsonXContent;
 
 public class FeaturesParserTests extends LuceneTestCase {
     public void testParseArray() throws IOException {

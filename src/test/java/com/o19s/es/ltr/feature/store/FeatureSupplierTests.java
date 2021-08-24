@@ -5,7 +5,7 @@ import com.o19s.es.ltr.ranker.DenseFeatureVector;
 import com.o19s.es.ltr.ranker.LtrRanker;
 import com.o19s.es.ltr.utils.Suppliers;
 import org.apache.lucene.util.LuceneTestCase;
-import org.elasticsearch.index.query.QueryBuilders;
+import org.opensearch.index.query.QueryBuilders;
 
 import java.util.Collections;
 import java.util.Iterator;

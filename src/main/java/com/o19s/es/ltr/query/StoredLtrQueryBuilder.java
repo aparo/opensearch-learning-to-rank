@@ -23,17 +23,17 @@ import com.o19s.es.ltr.feature.store.FeatureStore;
 import com.o19s.es.ltr.feature.store.index.IndexFeatureStore;
 import com.o19s.es.ltr.ranker.linear.LinearRanker;
 import com.o19s.es.ltr.utils.FeatureStoreLoader;
-import org.elasticsearch.Version;
-import org.elasticsearch.common.ParseField;
-import org.elasticsearch.common.ParsingException;
-import org.elasticsearch.common.io.stream.NamedWriteable;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
-import org.elasticsearch.common.xcontent.ObjectParser;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentParser;
-import org.elasticsearch.index.query.AbstractQueryBuilder;
-import org.elasticsearch.index.query.QueryShardContext;
+import org.opensearch.Version;
+import org.opensearch.common.ParseField;
+import org.opensearch.common.ParsingException;
+import org.opensearch.common.io.stream.NamedWriteable;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
+import org.opensearch.common.xcontent.ObjectParser;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.common.xcontent.XContentParser;
+import org.opensearch.index.query.AbstractQueryBuilder;
+import org.opensearch.index.query.QueryShardContext;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -86,10 +86,8 @@ public class StoredLtrQueryBuilder extends AbstractQueryBuilder<StoredLtrQueryBu
         modelName = input.readOptionalString();
         featureSetName = input.readOptionalString();
         params = input.readMap();
-        if (input.getVersion().onOrAfter(Version.V_6_2_4)) {
-            String[] activeFeat = input.readOptionalStringArray();
-            activeFeatures = activeFeat == null ? null : Arrays.asList(activeFeat);
-        }
+        String[] activeFeat = input.readOptionalStringArray();
+        activeFeatures = activeFeat == null ? null : Arrays.asList(activeFeat);
         storeName = input.readOptionalString();
     }
 
@@ -116,9 +114,7 @@ public class StoredLtrQueryBuilder extends AbstractQueryBuilder<StoredLtrQueryBu
         out.writeOptionalString(modelName);
         out.writeOptionalString(featureSetName);
         out.writeMap(params);
-        if (out.getVersion().onOrAfter(Version.V_6_2_4)) {
-            out.writeOptionalStringArray(activeFeatures != null ? activeFeatures.toArray(new String[0]) : null);
-        }
+        out.writeOptionalStringArray(activeFeatures != null ? activeFeatures.toArray(new String[0]) : null);
         out.writeOptionalString(storeName);
     }
 

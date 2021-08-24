@@ -19,24 +19,24 @@ package com.o19s.es.ltr.action;
 import com.o19s.es.ltr.action.AddFeaturesToSetAction.AddFeaturesToSetResponse;
 import com.o19s.es.ltr.feature.store.StoredFeature;
 import com.o19s.es.ltr.feature.FeatureValidation;
-import org.elasticsearch.action.ActionRequest;
-import org.elasticsearch.action.ActionRequestBuilder;
-import org.elasticsearch.action.ActionRequestValidationException;
-import org.elasticsearch.action.ActionResponse;
-import org.elasticsearch.action.ActionType;
-import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.client.ElasticsearchClient;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
-import org.elasticsearch.common.io.stream.Writeable.Reader;
-import org.elasticsearch.common.xcontent.StatusToXContentObject;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.rest.RestStatus;
+import org.opensearch.action.ActionRequest;
+import org.opensearch.action.ActionRequestBuilder;
+import org.opensearch.action.ActionRequestValidationException;
+import org.opensearch.action.ActionResponse;
+import org.opensearch.action.ActionType;
+import org.opensearch.action.index.IndexResponse;
+import org.opensearch.client.OpenSearchClient;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
+import org.opensearch.common.io.stream.Writeable.Reader;
+import org.opensearch.common.xcontent.StatusToXContentObject;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.rest.RestStatus;
 
 import java.io.IOException;
 import java.util.List;
 
-import static org.elasticsearch.action.ValidateActions.addValidationError;
+import static org.opensearch.action.ValidateActions.addValidationError;
 
 public class AddFeaturesToSetAction extends ActionType<AddFeaturesToSetResponse> {
     public static final AddFeaturesToSetAction INSTANCE = new AddFeaturesToSetAction();
@@ -52,7 +52,7 @@ public class AddFeaturesToSetAction extends ActionType<AddFeaturesToSetResponse>
     }
 
     public static class AddFeaturesToSetRequestBuilder extends ActionRequestBuilder<AddFeaturesToSetRequest, AddFeaturesToSetResponse> {
-        public AddFeaturesToSetRequestBuilder(ElasticsearchClient client) {
+        public AddFeaturesToSetRequestBuilder(OpenSearchClient client) {
             super(client, INSTANCE, new AddFeaturesToSetRequest());
         }
     }

@@ -1,6 +1,6 @@
 package com.o19s.es.ltr.stats;
 
-import org.elasticsearch.test.ESTestCase;
+import org.opensearch.test.OpenSearchTestCase;
 import org.junit.Before;
 
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class LTRStatsTests extends ESTestCase {
+public class LTRStatsTests extends OpenSearchTestCase {
 
     private Map<String, LTRStat> statsMap;
     private LTRStats ltrStats;

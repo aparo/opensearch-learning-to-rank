@@ -21,7 +21,7 @@ import com.o19s.es.ltr.action.AddFeaturesToSetAction.AddFeaturesToSetResponse;
 import com.o19s.es.ltr.feature.store.StoredFeature;
 import com.o19s.es.ltr.feature.store.StoredFeatureSet;
 import com.o19s.es.ltr.feature.store.index.IndexFeatureStore;
-import org.elasticsearch.action.DocWriteResponse;
+import org.opensearch.action.DocWriteResponse;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +30,7 @@ import java.util.concurrent.ExecutionException;
 
 import static com.o19s.es.ltr.LtrTestUtils.randomFeature;
 import static java.util.Arrays.asList;
-import static org.elasticsearch.ExceptionsHelper.unwrap;
+import static org.opensearch.ExceptionsHelper.unwrap;
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class AddFeaturesToSetActionIT extends BaseIntegrationTest {

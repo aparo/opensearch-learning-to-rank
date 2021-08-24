@@ -18,19 +18,19 @@ package com.o19s.es.ltr.action;
 
 import com.o19s.es.ltr.action.ListStoresAction.ListStoresActionResponse;
 import com.o19s.es.ltr.feature.store.index.IndexFeatureStore;
-import org.elasticsearch.action.ActionRequestBuilder;
-import org.elasticsearch.action.ActionRequestValidationException;
-import org.elasticsearch.action.ActionResponse;
-import org.elasticsearch.action.ActionType;
-import org.elasticsearch.action.support.master.MasterNodeReadRequest;
-import org.elasticsearch.client.ElasticsearchClient;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
-import org.elasticsearch.common.io.stream.Writeable;
-import org.elasticsearch.common.io.stream.Writeable.Reader;
-import org.elasticsearch.common.xcontent.ToXContent;
-import org.elasticsearch.common.xcontent.ToXContentObject;
-import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.opensearch.action.ActionRequestBuilder;
+import org.opensearch.action.ActionRequestValidationException;
+import org.opensearch.action.ActionResponse;
+import org.opensearch.action.ActionType;
+import org.opensearch.action.support.master.MasterNodeReadRequest;
+import org.opensearch.client.OpenSearchClient;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
+import org.opensearch.common.io.stream.Writeable;
+import org.opensearch.common.io.stream.Writeable.Reader;
+import org.opensearch.common.xcontent.ToXContent;
+import org.opensearch.common.xcontent.ToXContentObject;
+import org.opensearch.common.xcontent.XContentBuilder;
 
 import java.io.IOException;
 import java.util.List;
@@ -151,7 +151,7 @@ public class ListStoresAction extends ActionType<ListStoresActionResponse> {
 
     public static class ListStoresActionBuilder extends
         ActionRequestBuilder<ListStoresActionRequest, ListStoresActionResponse> {
-        public ListStoresActionBuilder(ElasticsearchClient client){
+        public ListStoresActionBuilder(OpenSearchClient client){
             super(client, INSTANCE, new ListStoresActionRequest());
         }
     }

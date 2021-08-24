@@ -44,15 +44,15 @@ import org.apache.lucene.search.Weight;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.util.LuceneTestCase;
 import org.apache.lucene.util.TestUtil;
-import org.elasticsearch.common.lucene.search.function.CombineFunction;
-import org.elasticsearch.common.lucene.search.function.FieldValueFactorFunction;
-import org.elasticsearch.common.lucene.search.function.FunctionScoreQuery;
-import org.elasticsearch.common.text.Text;
-import org.elasticsearch.index.fielddata.plain.SortedNumericIndexFieldData;
-import org.elasticsearch.search.SearchHit;
-import org.elasticsearch.search.fetch.FetchSubPhase;
-import org.elasticsearch.search.fetch.FetchSubPhaseProcessor;
-import org.elasticsearch.search.lookup.SourceLookup;
+import org.opensearch.common.lucene.search.function.CombineFunction;
+import org.opensearch.common.lucene.search.function.FieldValueFactorFunction;
+import org.opensearch.common.lucene.search.function.FunctionScoreQuery;
+import org.opensearch.common.text.Text;
+import org.opensearch.index.fielddata.plain.SortedNumericIndexFieldData;
+import org.opensearch.search.SearchHit;
+import org.opensearch.search.fetch.FetchSubPhase;
+import org.opensearch.search.fetch.FetchSubPhaseProcessor;
+import org.opensearch.search.lookup.SourceLookup;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
@@ -64,8 +64,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import static org.elasticsearch.common.lucene.search.function.FieldValueFactorFunction.Modifier.LN2P;
-import static org.elasticsearch.index.fielddata.IndexNumericFieldData.NumericType.FLOAT;
+import static org.opensearch.common.lucene.search.function.FieldValueFactorFunction.Modifier.LN2P;
+import static org.opensearch.index.fielddata.IndexNumericFieldData.NumericType.FLOAT;
 
 public class LoggingFetchSubPhaseTests extends LuceneTestCase {
     public static final float FACTOR = 1.2F;
@@ -186,7 +186,7 @@ public class LoggingFetchSubPhaseTests extends LuceneTestCase {
                         random().nextBoolean() ? new HashMap<>() : null,
                         null
                     );
-                    processor.process(new FetchSubPhase.HitContext(hit, context, doc, new SourceLookup(), new HashMap<>()));
+                    processor.process(new FetchSubPhase.HitContext(hit, context, doc, new SourceLookup()));
                     hits.add(hit);
                 }
             }

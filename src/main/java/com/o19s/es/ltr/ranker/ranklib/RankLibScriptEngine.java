@@ -18,8 +18,8 @@ package com.o19s.es.ltr.ranker.ranklib;
 
 import com.o19s.es.ltr.ranker.LtrRanker;
 import com.o19s.es.ltr.ranker.parser.LtrRankerParserFactory;
-import org.elasticsearch.script.ScriptContext;
-import org.elasticsearch.script.ScriptEngine;
+import org.opensearch.script.ScriptContext;
+import org.opensearch.script.ScriptEngine;
 
 import java.io.IOException;
 import java.util.Collections;

@@ -19,22 +19,22 @@ package com.o19s.es.ltr.action;
 import com.o19s.es.ltr.action.CreateModelFromSetAction.CreateModelFromSetResponse;
 import com.o19s.es.ltr.feature.FeatureValidation;
 import com.o19s.es.ltr.feature.store.StoredLtrModel;
-import org.elasticsearch.action.ActionRequest;
-import org.elasticsearch.action.ActionRequestBuilder;
-import org.elasticsearch.action.ActionRequestValidationException;
-import org.elasticsearch.action.ActionResponse;
-import org.elasticsearch.action.ActionType;
-import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.client.ElasticsearchClient;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
-import org.elasticsearch.common.xcontent.StatusToXContentObject;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.rest.RestStatus;
+import org.opensearch.action.ActionRequest;
+import org.opensearch.action.ActionRequestBuilder;
+import org.opensearch.action.ActionRequestValidationException;
+import org.opensearch.action.ActionResponse;
+import org.opensearch.action.ActionType;
+import org.opensearch.action.index.IndexResponse;
+import org.opensearch.client.OpenSearchClient;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
+import org.opensearch.common.xcontent.StatusToXContentObject;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.rest.RestStatus;
 
 import java.io.IOException;
 
-import static org.elasticsearch.action.ValidateActions.addValidationError;
+import static org.opensearch.action.ValidateActions.addValidationError;
 
 public class CreateModelFromSetAction extends ActionType<CreateModelFromSetResponse> {
     public static final String NAME = "cluster:admin/ltr/store/create-model-from-set";
@@ -48,7 +48,7 @@ public class CreateModelFromSetAction extends ActionType<CreateModelFromSetRespo
     public static class CreateModelFromSetRequestBuilder extends ActionRequestBuilder<CreateModelFromSetRequest,
         CreateModelFromSetResponse> {
 
-        public CreateModelFromSetRequestBuilder(ElasticsearchClient client) {
+        public CreateModelFromSetRequestBuilder(OpenSearchClient client) {
             super(client, INSTANCE, new CreateModelFromSetRequest());
         }
 

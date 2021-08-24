@@ -17,25 +17,25 @@
 package com.o19s.es.ltr.action;
 
 import com.o19s.es.ltr.action.ClearCachesAction.ClearCachesNodesResponse;
-import org.elasticsearch.action.ActionRequestBuilder;
-import org.elasticsearch.action.ActionRequestValidationException;
-import org.elasticsearch.action.ActionType;
-import org.elasticsearch.action.FailedNodeException;
-import org.elasticsearch.action.support.nodes.BaseNodeResponse;
-import org.elasticsearch.action.support.nodes.BaseNodesRequest;
-import org.elasticsearch.action.support.nodes.BaseNodesResponse;
-import org.elasticsearch.client.ElasticsearchClient;
-import org.elasticsearch.cluster.ClusterName;
-import org.elasticsearch.cluster.node.DiscoveryNode;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
+import org.opensearch.action.ActionRequestBuilder;
+import org.opensearch.action.ActionRequestValidationException;
+import org.opensearch.action.ActionType;
+import org.opensearch.action.FailedNodeException;
+import org.opensearch.action.support.nodes.BaseNodeResponse;
+import org.opensearch.action.support.nodes.BaseNodesRequest;
+import org.opensearch.action.support.nodes.BaseNodesResponse;
+import org.opensearch.client.OpenSearchClient;
+import org.opensearch.cluster.ClusterName;
+import org.opensearch.cluster.node.DiscoveryNode;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
-import org.elasticsearch.common.io.stream.Writeable.Reader;
+import org.opensearch.common.io.stream.Writeable.Reader;
 
-import static org.elasticsearch.action.ValidateActions.addValidationError;
+import static org.opensearch.action.ValidateActions.addValidationError;
 
 public class ClearCachesAction extends ActionType<ClearCachesNodesResponse> {
     public static final String NAME = "cluster:admin/ltr/caches";
@@ -51,7 +51,7 @@ public class ClearCachesAction extends ActionType<ClearCachesNodesResponse> {
     }
 
     public static class RequestBuilder extends ActionRequestBuilder<ClearCachesNodesRequest, ClearCachesNodesResponse> {
-        public RequestBuilder(ElasticsearchClient client) throws IOException {
+        public RequestBuilder(OpenSearchClient client) throws IOException {
             super(client, ClearCachesAction.INSTANCE, new ClearCachesNodesRequest());
         }
     }

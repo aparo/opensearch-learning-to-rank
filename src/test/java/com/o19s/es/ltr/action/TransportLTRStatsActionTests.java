@@ -7,10 +7,10 @@ import com.o19s.es.ltr.action.LTRStatsAction.LTRStatsNodesResponse;
 import com.o19s.es.ltr.stats.LTRStat;
 import com.o19s.es.ltr.stats.LTRStats;
 import com.o19s.es.ltr.stats.StatName;
-import org.elasticsearch.action.FailedNodeException;
-import org.elasticsearch.action.support.ActionFilters;
-import org.elasticsearch.test.ESIntegTestCase;
-import org.elasticsearch.transport.TransportService;
+import org.opensearch.action.FailedNodeException;
+import org.opensearch.action.support.ActionFilters;
+import org.opensearch.test.OpenSearchIntegTestCase;
+import org.opensearch.transport.TransportService;
 import org.junit.Before;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.Map;
 
 import static org.mockito.Mockito.mock;
 
-public class TransportLTRStatsActionTests extends ESIntegTestCase {
+public class TransportLTRStatsActionTests extends OpenSearchIntegTestCase {
 
     private TransportLTRStatsAction action;
     private LTRStats ltrStats;

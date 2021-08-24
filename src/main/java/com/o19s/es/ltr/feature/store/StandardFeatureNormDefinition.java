@@ -2,13 +2,13 @@ package com.o19s.es.ltr.feature.store;
 
 import com.o19s.es.ltr.ranker.normalizer.Normalizer;
 import com.o19s.es.ltr.ranker.normalizer.StandardFeatureNormalizer;
-import org.elasticsearch.ElasticsearchException;
-import org.elasticsearch.common.ParseField;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
-import org.elasticsearch.common.xcontent.ObjectParser;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentParser;
+import org.opensearch.OpenSearchException;
+import org.opensearch.common.ParseField;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
+import org.opensearch.common.xcontent.ObjectParser;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.common.xcontent.XContentParser;
 
 import java.io.IOException;
 
@@ -48,7 +48,7 @@ public class StandardFeatureNormDefinition implements FeatureNormDefinition {
 
     public void setStdDeviation(float stdDeviation) {
         if (stdDeviation <= 0.0f) {
-            throw new ElasticsearchException("Standard Deviation Must Be Positive. " +
+            throw new OpenSearchException("Standard Deviation Must Be Positive. " +
                                              " You passed: " + Float.toString(stdDeviation));
         }
         this.stdDeviation = stdDeviation;

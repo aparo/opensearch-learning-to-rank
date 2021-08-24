@@ -28,11 +28,11 @@ import com.o19s.es.ltr.ranker.parser.LinearRankerParser;
 import com.o19s.es.ltr.ranker.parser.LtrRankerParserFactory;
 import org.apache.lucene.search.MatchNoDocsQuery;
 import org.apache.lucene.search.Query;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.QueryShardContext;
-import org.elasticsearch.plugins.Plugin;
-import org.elasticsearch.test.AbstractQueryTestCase;
-import org.elasticsearch.test.TestGeoShapeFieldMapperPlugin;
+import org.opensearch.index.query.QueryBuilders;
+import org.opensearch.index.query.QueryShardContext;
+import org.opensearch.plugins.Plugin;
+import org.opensearch.test.AbstractQueryTestCase;
+import org.opensearch.test.TestGeoShapeFieldMapperPlugin;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;

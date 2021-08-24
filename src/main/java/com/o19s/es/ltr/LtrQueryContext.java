@@ -16,7 +16,7 @@
 
 package com.o19s.es.ltr;
 
-import org.elasticsearch.index.query.QueryShardContext;
+import org.opensearch.index.query.QueryShardContext;
 
 import java.util.Collections;
 import java.util.Set;

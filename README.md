@@ -1,61 +1,42 @@
-[![Build Status](https://travis-ci.com/o19s/elasticsearch-learning-to-rank.svg?branch=master)](https://travis-ci.com/o19s/elasticsearch-learning-to-rank)
+# Important Notice
 
-The Elasticsearch Learning to Rank plugin uses machine learning to improve search relevance ranking. It's powering search at places like Wikimedia Foundation and Snagajob!
+This is a fork of https://github.com/o19s/elasticsearch-learning-to-rank to work with OpenSearch. It's a rewrite of some parts to be able to work with OpenSearch 1.x. Please refer to official documentation of [Elasticsearch Learning to Rank](http://elasticsearch-learning-to-rank.readthedocs.io) for usage.
 
-# What this plugin does...
+The OpenSearch Learning to Rank plugin uses machine learning to improve search relevance ranking. It's powering search at places like Wikimedia Foundation and Snagajob!
 
-This plugin:
-
-- Allows you to store features (Elasticsearch query templates) in Elasticsearch
-- Logs features scores (relevance scores) to create a training set for offline model development
-- Stores linear, xgboost, or ranklib ranking models in Elasticsearch that use features you've stored
-- Ranks search results using a stored model
-
-## Where's the docs?
-
-We recommend taking time to [read the docs](http://elasticsearch-learning-to-rank.readthedocs.io). There's quite a bit of detailed information about learning to rank basics and how this plugin can ease learning to rank development. 
-
-You can also participate in regular [trainings](http://opensourceconnections.com/events/training) on Elasticsearch Learning to Rank, which support the free work done on this plugin.
-
-## I want to jump in!
-
-The demo lives in another repo now, [Hello LTR](https://github.com/o19s/hello-ltr) and it has both ES and Solr example. Follow the directions for Elasticsearch in the README to set up the environment and start with the [notebooks/elasticsearch/tmdb/hello-ltr.ipynb](https://github.com/o19s/hello-ltr/blob/master/notebooks/elasticsearch/tmdb/hello-ltr%20(ES).ipynb). Have fun!
 
 # Installing
 
-See the full list of [prebuilt versions](http://es-learn-to-rank.labs.o19s.com) and select the version that matches your Elasticsearch version. If you don't see a version available, see the link below for building or file a request via [issues](https://github.com/o19s/elasticsearch-learning-to-rank/issues).
-
 To install, you'd run a command like this but replacing with the appropriate prebuilt version zip:
 
-`./bin/elasticsearch-plugin install http://es-learn-to-rank.labs.o19s.com/ltr-1.0.0-es6.1.2.zip`
+`./bin/opensearch-plugin install -b https://github.com/aparo/opensearch-learning-to-rank/releases/download/1.0.0-alpha1/ltr-1.5.4-os1.0.0-alpha1.zip`
 
-(It's expected you'll confirm some security exceptions, you can pass `-b` to `elasticsearch-plugin` to automatically install)
+(It's expected you'll confirm some security exceptions, you can pass `-b` to `opensearch-plugin` to automatically install)
 
-If you already are running Elasticsearch, don't forget to restart!
+If you already are running OpenSearch, don't forget to restart!
 
-# Known issues
-As any other piece of software, this plugin is not exempt from issues. Please read the [known issues](KNOWN_ISSUES.md) to learn about the current issues that we are aware of. This file might include workarounds to mitigate them when possible.
 
-# Build and Deploy Locally
+## About alpha releases
 
-Notes if you want to dig into the code or build for a version there's no build for, please feel free to run the build and installation process yourself:
+These releases are alpha because some issues with the tests due to securemock that depends on ElasticSearch security stuff.
+And there are 14 failing tests.
 
 ```
-./gradlew clean check
-./bin/elasticsearch-plugin install file:///path/to/elasticsearch-learning-to-rank/build/distributions/ltr-<LTR-VER>-es<ES-VER>.zip
+Tests with failures:
+- com.o19s.es.ltr.feature.store.StoredFeatureSetParserTests.testExpressionDoubleQueryParameter
+- com.o19s.es.ltr.feature.store.StoredFeatureSetParserTests.testExpressionMissingQueryParameter
+- com.o19s.es.ltr.feature.store.StoredFeatureSetParserTests.testExpressionIntegerQueryParameter
+- com.o19s.es.ltr.feature.store.StoredFeatureSetParserTests.testExpressionShortQueryParameter
+- com.o19s.es.ltr.feature.store.StoredFeatureSetParserTests.testExpressionInvalidQueryParameter
+- com.o19s.es.termstat.TermStatQueryBuilderTests.testMustRewrite
+- com.o19s.es.termstat.TermStatQueryBuilderTests.testToQuery
+- com.o19s.es.termstat.TermStatQueryBuilderTests.testCacheability
+- com.o19s.es.ltr.feature.store.StoredFeatureParserTests.testExpressionOptimization
+- com.o19s.es.termstat.TermStatQueryTests.testEmptyTerms
+- com.o19s.es.termstat.TermStatQueryTests.testUniqueCount
+- com.o19s.es.termstat.TermStatQueryTests.testBasicFormula
+- com.o19s.es.termstat.TermStatQueryTests.testQuery
+- com.o19s.es.termstat.TermStatQueryTests.testMatchCount
+
+228 tests completed, 14 failed
 ```
-
-# How to Contribute
-
-For more information on helping us out (we need your help!), developing with the plugin, creating docs, etc please read [CONTRIBUTING.md](/CONTRIBUTING.md).
-
-# Who built this?
-- [Initially developed](http://opensourceconnections.com/blog/2017/02/14/elasticsearch-learning-to-rank/) at [OpenSource Connections](http://opensourceconnections.com).
-- Significant contributions by [Wikimedia Foundation](https://wikimediafoundation.org/wiki/Home), [Snagajob Engineering](https://engineering.snagajob.com/), [Bonsai](https://bonsai.io/), and [Yelp Engineering](https://engineeringblog.yelp.com/)
-- Thanks to [Jettro Coenradie](https://amsterdam.luminis.eu/author/jettro/) for porting to ES 6.1
-
-## Other Acknowledgments & Stuff To Read
-- Bloomberg's [Learning to Rank work for Solr](https://issues.apache.org/jira/browse/SOLR-8542)
-- Our Berlin Buzzwords Talk, [We built an Elasticsearch Learning to Rank plugin. Then came the hard part](https://berlinbuzzwords.de/17/session/we-built-elasticsearch-learning-rank-plugin-then-came-hard-part)
-- Blog article on [How is Search Different from Other Machine Learning Problems](http://opensourceconnections.com/blog/2017/08/03/search-as-machine-learning-prob/)
-- Also check out our other relevance/search thingies: book [Relevant Search](http://manning.com/books/relevant-search), projects [Elyzer](http://github.com/o19s/elyzer), [Splainer](http://splainer.io), and [Quepid](http://quepid.com)

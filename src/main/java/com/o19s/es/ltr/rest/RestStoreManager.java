@@ -2,17 +2,17 @@ package com.o19s.es.ltr.rest;
 
 import com.o19s.es.ltr.action.ListStoresAction;
 import com.o19s.es.ltr.feature.store.index.IndexFeatureStore;
-import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
-import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
-import org.elasticsearch.client.node.NodeClient;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.rest.BytesRestResponse;
-import org.elasticsearch.rest.RestRequest;
-import org.elasticsearch.rest.RestResponse;
-import org.elasticsearch.rest.RestStatus;
-import org.elasticsearch.rest.action.RestBuilderListener;
-import org.elasticsearch.rest.action.RestToXContentListener;
-import org.elasticsearch.rest.BaseRestHandler;
+import org.opensearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.opensearch.action.admin.indices.exists.indices.IndicesExistsResponse;
+import org.opensearch.client.node.NodeClient;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.rest.BytesRestResponse;
+import org.opensearch.rest.RestRequest;
+import org.opensearch.rest.RestResponse;
+import org.opensearch.rest.RestStatus;
+import org.opensearch.rest.action.RestBuilderListener;
+import org.opensearch.rest.action.RestToXContentListener;
+import org.opensearch.rest.BaseRestHandler;
 
 import java.io.IOException;
 import java.util.List;

@@ -17,9 +17,9 @@ package com.o19s.es.ltr.utils;
 
 import org.apache.lucene.expressions.Expression;
 import org.apache.lucene.expressions.js.JavascriptCompiler;
-import org.elasticsearch.SpecialPermission;
-import org.elasticsearch.script.ClassPermission;
-import org.elasticsearch.script.ScriptException;
+import org.opensearch.SpecialPermission;
+import org.opensearch.script.ClassPermission;
+import org.opensearch.script.ScriptException;
 
 import java.security.AccessControlContext;
 import java.security.AccessController;

@@ -28,26 +28,26 @@ import com.o19s.es.ltr.ranker.parser.LtrRankerParserFactory;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.message.ParameterizedMessage;
 import org.apache.lucene.util.BytesRef;
-import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
-import org.elasticsearch.action.get.GetResponse;
-import org.elasticsearch.client.Client;
-import org.elasticsearch.client.Requests;
-import org.elasticsearch.cluster.metadata.IndexMetadata;
-import org.elasticsearch.cluster.metadata.MetadataCreateIndexService;
-import org.elasticsearch.common.CheckedFunction;
-import org.elasticsearch.common.ParseField;
-import org.elasticsearch.common.bytes.BytesReference;
+import org.opensearch.action.admin.indices.create.CreateIndexRequest;
+import org.opensearch.action.get.GetResponse;
+import org.opensearch.client.Client;
+import org.opensearch.client.Requests;
+import org.opensearch.cluster.metadata.IndexMetadata;
+import org.opensearch.cluster.metadata.MetadataCreateIndexService;
+import org.opensearch.common.CheckedFunction;
+import org.opensearch.common.ParseField;
+import org.opensearch.common.bytes.BytesReference;
 import org.apache.logging.log4j.LogManager;
-import org.elasticsearch.common.settings.Setting;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.xcontent.LoggingDeprecationHandler;
-import org.elasticsearch.common.xcontent.NamedXContentRegistry;
-import org.elasticsearch.common.xcontent.ObjectParser;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
-import org.elasticsearch.common.xcontent.XContentParser;
-import org.elasticsearch.common.xcontent.XContentType;
-import org.elasticsearch.core.internal.io.Streams;
+import org.opensearch.common.settings.Setting;
+import org.opensearch.common.settings.Settings;
+import org.opensearch.common.xcontent.LoggingDeprecationHandler;
+import org.opensearch.common.xcontent.NamedXContentRegistry;
+import org.opensearch.common.xcontent.ObjectParser;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.common.xcontent.XContentFactory;
+import org.opensearch.common.xcontent.XContentParser;
+import org.opensearch.common.xcontent.XContentType;
+import org.opensearch.core.internal.io.Streams;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -119,10 +119,10 @@ public class IndexFeatureStore implements FeatureStore {
     }
 
     /**
-     * Construct the elasticsearch index name based on a store name
+     * Construct the opensearch index name based on a store name
      *
      * @param storeName the store name
-     * @return the name of the elasticsearch index based on the given store name
+     * @return the name of the opensearch index based on the given store name
      */
     public static String indexName(String storeName) {
         if (Objects.requireNonNull(storeName).isEmpty()) {
@@ -132,7 +132,7 @@ public class IndexFeatureStore implements FeatureStore {
     }
 
     /**
-     * Infer the store name based on an elasticsearch index name
+     * Infer the store name based on an opensearch index name
      * This function is only meant for user display, _default_ is returned in case indexName equals to DEFAULT_STORE.
      * @see IndexFeatureStore#isIndexStore(String)
      *

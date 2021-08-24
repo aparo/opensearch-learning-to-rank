@@ -1,13 +1,13 @@
 package com.o19s.es.ltr.stats.suppliers;
 
 import com.o19s.es.ltr.feature.store.index.IndexFeatureStore;
-import org.elasticsearch.cluster.metadata.IndexNameExpressionResolver;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.util.concurrent.ThreadContext;
-import org.elasticsearch.test.ESIntegTestCase;
+import org.opensearch.cluster.metadata.IndexNameExpressionResolver;
+import org.opensearch.common.settings.Settings;
+import org.opensearch.common.util.concurrent.ThreadContext;
+import org.opensearch.test.OpenSearchIntegTestCase;
 import org.junit.Before;
 
-public class PluginHealthStatusSupplierTests extends ESIntegTestCase {
+public class PluginHealthStatusSupplierTests extends OpenSearchIntegTestCase {
     private PluginHealthStatusSupplier pluginHealthStatusSupplier;
 
     @Before

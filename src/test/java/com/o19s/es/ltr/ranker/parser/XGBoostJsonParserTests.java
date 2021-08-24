@@ -25,8 +25,8 @@ import com.o19s.es.ltr.ranker.LtrRanker.FeatureVector;
 import com.o19s.es.ltr.ranker.dectree.NaiveAdditiveDecisionTree;
 import com.o19s.es.ltr.ranker.linear.LinearRankerTests;
 import org.apache.lucene.util.LuceneTestCase;
-import org.elasticsearch.common.ParsingException;
-import org.elasticsearch.core.internal.io.Streams;
+import org.opensearch.common.ParsingException;
+import org.opensearch.core.internal.io.Streams;
 import org.hamcrest.CoreMatchers;
 
 import java.io.ByteArrayOutputStream;

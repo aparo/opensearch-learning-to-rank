@@ -16,10 +16,10 @@
 
 package com.o19s.es.ltr.feature.store;
 
-import org.elasticsearch.common.ParsingException;
-import org.elasticsearch.common.io.stream.NamedWriteable;
-import org.elasticsearch.common.xcontent.ToXContent;
-import org.elasticsearch.common.xcontent.XContentParser;
+import org.opensearch.common.ParsingException;
+import org.opensearch.common.io.stream.NamedWriteable;
+import org.opensearch.common.xcontent.ToXContent;
+import org.opensearch.common.xcontent.XContentParser;
 
 public interface StorableElement extends ToXContent, NamedWriteable {
     /**

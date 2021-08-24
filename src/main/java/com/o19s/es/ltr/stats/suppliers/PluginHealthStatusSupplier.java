@@ -1,11 +1,11 @@
 package com.o19s.es.ltr.stats.suppliers;
 
 import com.o19s.es.ltr.feature.store.index.IndexFeatureStore;
-import org.elasticsearch.action.admin.cluster.state.ClusterStateRequest;
-import org.elasticsearch.cluster.health.ClusterIndexHealth;
-import org.elasticsearch.cluster.metadata.IndexNameExpressionResolver;
-import org.elasticsearch.cluster.service.ClusterService;
-import org.elasticsearch.common.util.concurrent.ThreadContext;
+import org.opensearch.action.admin.cluster.state.ClusterStateRequest;
+import org.opensearch.cluster.health.ClusterIndexHealth;
+import org.opensearch.cluster.metadata.IndexNameExpressionResolver;
+import org.opensearch.cluster.service.ClusterService;
+import org.opensearch.common.util.concurrent.ThreadContext;
 
 import java.util.Arrays;
 import java.util.Locale;

@@ -11,5 +11,5 @@ ltr.caches.expire_after_read: 0
 ltr.caches.max_mem: 100mb
 ```
 
-Elasticsearch versions 5.6.10, 6.3.0 and onwards should include the bugfix for this bug.
+elasticsearch versions 5.6.10, 6.3.0 and onwards should include the bugfix for this bug.
 

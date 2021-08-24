@@ -1,7 +1,7 @@
 package com.o19s.es.ltr.stats.suppliers;
 
 import com.o19s.es.ltr.feature.store.index.Caches;
-import org.elasticsearch.common.cache.Cache;
+import org.opensearch.common.cache.Cache;
 
 import java.util.Collections;
 import java.util.HashMap;

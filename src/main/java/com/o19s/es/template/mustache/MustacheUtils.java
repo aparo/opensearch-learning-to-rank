@@ -21,7 +21,7 @@ import com.github.mustachejava.MustacheException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.message.ParameterizedMessage;
 import org.apache.logging.log4j.util.Supplier;
-import org.elasticsearch.SpecialPermission;
+import org.opensearch.SpecialPermission;
 import org.apache.logging.log4j.LogManager;
 
 

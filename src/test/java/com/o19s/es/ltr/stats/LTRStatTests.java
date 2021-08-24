@@ -1,8 +1,8 @@
 package com.o19s.es.ltr.stats;
 
-import org.elasticsearch.test.ESTestCase;
+import org.opensearch.test.OpenSearchTestCase;
 
-public class LTRStatTests extends ESTestCase {
+public class LTRStatTests extends OpenSearchTestCase {
     public void testIsClusterLevel() {
         LTRStat stat1 = new LTRStat(true, () -> "test");
         assertTrue(stat1.isClusterLevel());

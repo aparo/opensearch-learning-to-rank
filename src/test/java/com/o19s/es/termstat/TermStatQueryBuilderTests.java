@@ -4,11 +4,11 @@ import com.o19s.es.explore.StatisticsHelper.AggrType;
 
 import com.o19s.es.ltr.LtrQueryParserPlugin;
 import org.apache.lucene.search.Query;
-import org.elasticsearch.common.ParsingException;
-import org.elasticsearch.index.query.QueryShardContext;
-import org.elasticsearch.plugins.Plugin;
-import org.elasticsearch.test.AbstractQueryTestCase;
-import org.elasticsearch.test.TestGeoShapeFieldMapperPlugin;
+import org.opensearch.common.ParsingException;
+import org.opensearch.index.query.QueryShardContext;
+import org.opensearch.plugins.Plugin;
+import org.opensearch.test.AbstractQueryTestCase;
+import org.opensearch.test.TestGeoShapeFieldMapperPlugin;
 
 import java.io.IOException;
 import java.util.Collection;

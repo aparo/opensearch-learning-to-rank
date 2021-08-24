@@ -16,15 +16,15 @@
 
 package com.o19s.es.ltr.logging;
 
-import org.elasticsearch.common.ParsingException;
-import org.elasticsearch.common.Strings;
-import org.elasticsearch.common.io.stream.BytesStreamOutput;
-import org.elasticsearch.common.xcontent.ToXContent;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
-import org.elasticsearch.common.xcontent.XContentParser;
-import org.elasticsearch.common.xcontent.json.JsonXContent;
-import org.elasticsearch.test.ESTestCase;
+import org.opensearch.common.ParsingException;
+import org.opensearch.common.Strings;
+import org.opensearch.common.io.stream.BytesStreamOutput;
+import org.opensearch.common.xcontent.ToXContent;
+import org.opensearch.common.xcontent.XContentBuilder;
+import org.opensearch.common.xcontent.XContentFactory;
+import org.opensearch.common.xcontent.XContentParser;
+import org.opensearch.common.xcontent.json.JsonXContent;
+import org.opensearch.test.OpenSearchTestCase;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 import static com.o19s.es.ltr.logging.LoggingSearchExtBuilder.parse;
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class LoggingSearchExtBuilderTests extends ESTestCase {
+public class LoggingSearchExtBuilderTests extends OpenSearchTestCase {
     public LoggingSearchExtBuilder buildTestExt() {
         LoggingSearchExtBuilder builder = new LoggingSearchExtBuilder();
         builder.addQueryLogging("name1", "query1", true);

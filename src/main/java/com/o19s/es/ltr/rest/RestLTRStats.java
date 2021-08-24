@@ -3,10 +3,10 @@ package com.o19s.es.ltr.rest;
 import com.o19s.es.ltr.action.LTRStatsAction;
 import com.o19s.es.ltr.action.LTRStatsAction.LTRStatsNodesRequest;
 import com.o19s.es.ltr.stats.StatName;
-import org.elasticsearch.client.node.NodeClient;
-import org.elasticsearch.rest.BaseRestHandler;
-import org.elasticsearch.rest.RestRequest;
-import org.elasticsearch.rest.action.RestActions;
+import org.opensearch.client.node.NodeClient;
+import org.opensearch.rest.BaseRestHandler;
+import org.opensearch.rest.RestRequest;
+import org.opensearch.rest.action.RestActions;
 
 import java.io.IOException;
 import java.util.Arrays;

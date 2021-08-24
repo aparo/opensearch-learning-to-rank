@@ -18,20 +18,20 @@ package com.o19s.es.ltr.action;
 
 import com.o19s.es.ltr.action.CachesStatsAction.CachesStatsNodesResponse;
 import com.o19s.es.ltr.feature.store.index.Caches;
-import org.elasticsearch.action.ActionRequestBuilder;
-import org.elasticsearch.action.ActionType;
-import org.elasticsearch.action.FailedNodeException;
-import org.elasticsearch.action.support.nodes.BaseNodeResponse;
-import org.elasticsearch.action.support.nodes.BaseNodesRequest;
-import org.elasticsearch.action.support.nodes.BaseNodesResponse;
-import org.elasticsearch.client.ElasticsearchClient;
-import org.elasticsearch.cluster.ClusterName;
-import org.elasticsearch.cluster.node.DiscoveryNode;
-import org.elasticsearch.common.io.stream.StreamInput;
-import org.elasticsearch.common.io.stream.StreamOutput;
-import org.elasticsearch.common.io.stream.Writeable;
-import org.elasticsearch.common.xcontent.ToXContent;
-import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.opensearch.action.ActionRequestBuilder;
+import org.opensearch.action.ActionType;
+import org.opensearch.action.FailedNodeException;
+import org.opensearch.action.support.nodes.BaseNodeResponse;
+import org.opensearch.action.support.nodes.BaseNodesRequest;
+import org.opensearch.action.support.nodes.BaseNodesResponse;
+import org.opensearch.client.OpenSearchClient;
+import org.opensearch.cluster.ClusterName;
+import org.opensearch.cluster.node.DiscoveryNode;
+import org.opensearch.common.io.stream.StreamInput;
+import org.opensearch.common.io.stream.StreamOutput;
+import org.opensearch.common.io.stream.Writeable;
+import org.opensearch.common.xcontent.ToXContent;
+import org.opensearch.common.xcontent.XContentBuilder;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -292,7 +292,7 @@ public class CachesStatsAction extends ActionType<CachesStatsNodesResponse> {
 
     public static class CachesStatsActionBuilder extends
         ActionRequestBuilder<CachesStatsNodesRequest, CachesStatsNodesResponse> {
-        public CachesStatsActionBuilder(ElasticsearchClient client){
+        public CachesStatsActionBuilder(OpenSearchClient client){
             super(client, INSTANCE, new CachesStatsNodesRequest());
         }
     }

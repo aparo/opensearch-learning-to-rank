@@ -1,18 +1,18 @@
 package com.o19s.es.ltr.rest;
 
 import com.o19s.es.ltr.feature.store.index.IndexFeatureStore;
-import org.elasticsearch.client.node.NodeClient;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.rest.RestRequest;
-import org.elasticsearch.rest.action.RestStatusToXContentListener;
+import org.opensearch.client.node.NodeClient;
+import org.opensearch.index.query.BoolQueryBuilder;
+import org.opensearch.rest.RestRequest;
+import org.opensearch.rest.action.RestStatusToXContentListener;
 
 import java.util.List;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.unmodifiableList;
-import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
-import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
-import static org.elasticsearch.index.query.QueryBuilders.termQuery;
+import static org.opensearch.index.query.QueryBuilders.boolQuery;
+import static org.opensearch.index.query.QueryBuilders.matchQuery;
+import static org.opensearch.index.query.QueryBuilders.termQuery;
 
 public class RestSearchStoreElements extends FeatureStoreBaseRestHandler {
     private final String type;
