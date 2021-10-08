@@ -11,7 +11,7 @@ buildscript {
 }
 
 group = 'com.o19s'
-version = "${ltrVersion}-os${opensearchVersion}-alpha1"
+version = "${ltrVersion}-os${opensearchVersion}"
 
 apply plugin: 'java'
 apply plugin: 'idea'
