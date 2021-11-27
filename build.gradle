@@ -75,20 +75,20 @@ sourceSets {
 }
 
 // Set to false to not use opensearch checkstyle rules
-checkstyleMain.enabled = true
-checkstyleTest.enabled = true
+// checkstyleMain.enabled = true
+// checkstyleTest.enabled = true
 
 // FIXME dependency license check needs to be enabled
-dependencyLicenses.enabled = false
+// dependencyLicenses.enabled = false
 
 // FIXME thirdparty audit needs to be enabled
-thirdPartyAudit.enabled = false
+// thirdPartyAudit.enabled = false
 
 // Uncomment this to skip license header checks
-licenseHeaders.enabled = false
+// licenseHeaders.enabled = false
 
 // No need to validate POM, as we do not upload to sonatype
-validateNebulaPom.enabled = false
+// validateNebulaPom.enabled = false
 
 // Elastic tried to remove the logging requirement for plugins, but didn't get it quite right so this is a short term fix until 7.11
 // https://github.com/elastic/opensearch/issues/65247
