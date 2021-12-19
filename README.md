@@ -14,6 +14,7 @@ To install, you'd run a command like this but replacing with the appropriate pre
 | 1.0.0  | `bin/opensearch-plugin install https://github.com/aparo/opensearch-learning-to-rank/releases/download/1.0.0/ltr-1.5.4-os1.0.0.zip` |
 | 1.1.0  | `bin/opensearch-plugin install https://github.com/aparo/opensearch-learning-to-rank/releases/download/1.1.0/ltr-1.5.4-os1.1.0.zip` |
 | 1.2.0  | `bin/opensearch-plugin install https://github.com/aparo/opensearch-learning-to-rank/releases/download/1.2.0/ltr-1.5.4-os1.2.0.zip` |
+| 1.2.2  | `bin/opensearch-plugin install https://github.com/aparo/opensearch-learning-to-rank/releases/download/1.2.2/ltr-1.5.4-os1.2.2.zip` |
 
 
 (It's expected you'll confirm some security exceptions, you can pass `-b` to `opensearch-plugin` to automatically install)

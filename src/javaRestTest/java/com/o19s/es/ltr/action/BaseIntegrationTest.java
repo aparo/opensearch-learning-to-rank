@@ -36,7 +36,7 @@ import org.opensearch.plugins.ScriptPlugin;
 import org.opensearch.script.ScoreScript;
 import org.opensearch.script.ScriptContext;
 import org.opensearch.script.ScriptEngine;
-import org.opensearch.test.ESSingleNodeTestCase;
+import org.opensearch.test.OpenSearchSingleNodeTestCase;
 import org.opensearch.test.TestGeoShapeFieldMapperPlugin;
 import org.junit.Before;
 
@@ -54,7 +54,7 @@ import java.util.function.Supplier;
 import static com.o19s.es.ltr.feature.store.ScriptFeature.EXTRA_LOGGING;
 import static com.o19s.es.ltr.feature.store.ScriptFeature.FEATURE_VECTOR;
 
-public abstract class BaseIntegrationTest extends ESSingleNodeTestCase {
+public abstract class BaseIntegrationTest extends OpenSearchSingleNodeTestCase {
 
     public static final ScriptContext<ScoreScript.Factory> AGGS_CONTEXT = new ScriptContext<>("aggs", ScoreScript.Factory.class);
 
