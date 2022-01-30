@@ -10,6 +10,11 @@ buildscript {
   }
 }
 
+plugins {
+  id "co.riiid.gradle" version "0.4.2"
+}
+
+
 group = 'com.o19s'
 version = "${ltrVersion}-os${opensearchVersion}"
 
@@ -93,3 +98,27 @@ sourceSets {
 // Elastic tried to remove the logging requirement for plugins, but didn't get it quite right so this is a short term fix until 7.11
 // https://github.com/elastic/opensearch/issues/65247
 loggerUsageCheck.enabled = false
+
+githubRelease.doFirst {
+  if (!System.getProperty('GITHUB_TOKEN', '')) {
+    throw new Exception('Missing property GITHUB_TOKEN')
+  }
+
+  // check if zip file is there
+  assert file("build/distributions/ingest-opennlp-${version}.zip").exists()
+
+  // rename zip file
+  def currentVersion = version.replace('-SNAPSHOT', '')
+  def filename = "build/distributions/ltr-1.5.4-os${currentVersion}.zip"
+  Files.copy(file("build/distributions/ltr-1.5.4-os${version}.zip").toPath(), file(filename).toPath())
+
+  // configuration
+  github {
+    owner = 'aparo'
+    repo = 'opensearch-learning-to-rank'
+    token = System.getProperty('GITHUB_TOKEN')
+    tagName = currentVersion
+    assets = [ filename ]
+    targetCommitish = 'main'
+  }
+}
